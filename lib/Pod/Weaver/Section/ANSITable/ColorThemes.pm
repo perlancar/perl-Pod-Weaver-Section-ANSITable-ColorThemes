@@ -30,7 +30,7 @@ sub weave_section {
     local @INC = @INC;
     unshift @INC, 'lib';
     require $pkg_p;
-    require Text::ANSITable;
+    #require Text::ANSITable;
 
     my $text;
     {
