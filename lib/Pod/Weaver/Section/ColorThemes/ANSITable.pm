@@ -1,10 +1,11 @@
-package Pod::Weaver::Section::ANSITable::ColorThemes;
+package Pod::Weaver::Section::ColorThemes::ANSITable;
 
 # DATE
 # VERSION
 
 use 5.010001;
 use Moose;
+with 'Pod::Weaver::Role::AddTextToSection';
 with 'Pod::Weaver::Role::Section';
 
 use List::Util qw(first);
@@ -32,7 +33,7 @@ sub weave_section {
     require $pkg_p;
     #require Text::ANSITable;
 
-    my $text;
+    my $text = "Below are the color themes included in this package:\n\n";
     {
         no strict 'refs';
         my $color_themes = \%{"$pkg\::color_themes"};
@@ -45,21 +46,12 @@ sub weave_section {
         }
     }
 
-    $document->children->push(
-        Pod::Elemental::Element::Nested->new({
-            command  => 'head1',
-            content  => 'INCLUDED COLOR THEMES',
-            children => [
-                map { Pod::Elemental::Element::Pod5::Ordinary->new({ content => $_ })} split /\n\n/, $text
-            ],
-        }),
-    );
-    $self->log(["Inserted INCLUDED COLOR THEMES POD section to file %s", $filename]);
+    $self->add_text_to_section($document, $text, 'COLOR THEMES');
 }
 
 no Moose;
 1;
-# ABSTRACT: Add an INCLUDED COLOR THEMES section for ANSITable ColorTheme module
+# ABSTRACT: Add a COLOR THEMES section for ANSITable ColorTheme module
 
 =for Pod::Coverage weave_section
 
@@ -67,7 +59,7 @@ no Moose;
 
 In your C<weaver.ini>:
 
- [ANSITable::ColorThemes]
+ [ColorThemes::ANSITable]
 
 
 =head1 DESCRIPTION
