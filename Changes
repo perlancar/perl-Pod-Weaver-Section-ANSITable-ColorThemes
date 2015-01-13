@@ -1,5 +1,12 @@
 Revision history for Pod-Weaver-Section-ColorThemes-ANSITable
 
+0.03    2015-01-13 (PERLANCAR)
+
+	- No functional changes.
+
+	- [Bugfix] Logic error, text was reset to empty string.
+
+
 0.02    2015-01-13 (PERLANCAR)
 
 	- Rename module/dist from PWS::ANSITable::ColorThemes to
