@@ -1,5 +1,11 @@
 Revision history for Pod-Weaver-Section-ColorThemes-ANSITable
 
+0.02    2015-01-13 (PERLANCAR)
+
+	- Rename module/dist from PWS::ANSITable::ColorThemes to
+	  PWS::ColorThemes::ANSITable; use PWR::AddTextToSection.
+
+
 0.01    2014-12-13 (PERLANCAR)
 
         - First release, moved code from weaver.ini (using Eval, yikes).
