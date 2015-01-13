@@ -37,7 +37,6 @@ sub weave_section {
     {
         no strict 'refs';
         my $color_themes = \%{"$pkg\::color_themes"};
-        $text = "";
         for my $style (sort keys %$color_themes) {
             my $spec = $color_themes->{$style};
             $text .= "=head2 $short_pkg\::$style\n\n";
